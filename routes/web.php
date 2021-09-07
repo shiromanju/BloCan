@@ -1,7 +1,8 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
-|--------------------------------------------------------------------------
+Route::get('/','PostController@index');|--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -11,6 +12,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BlogController@index');
+Route::get('/blogs/create', 'BlogController@create');
+Route::get('/blogs/{post}/edit', 'BlogController@edit');
+Route::put('/posts/{post}', 'BlogController@update');
+Route::delete('/posts/{post}', 'BlogController@destroy');
+Route::get('/posts/{post}', 'PostController@show');
+Route::post('/posts', 'PostController@store');
