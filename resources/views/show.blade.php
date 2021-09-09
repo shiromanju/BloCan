@@ -10,9 +10,10 @@
         <h1>Blog Name</h1>
         <p class='create'>[<a href='/blogs/create'>create</a>]</p>
         <div class='post'>
-                  <h2 class='title'>{{$blog->title}}</h2>
-                  <p class='body'>{{ $blog->content}}</p>
-                   <p class='updated_at'>{{ $blog->updated_at}}</p>
+                  <h2 class='title'>{{ $blog->title }}</h2>
+                  <p class='content'>{!! nl2br(e($blog->content)) !!}</p>
+                   <h2 class='category'>{{ $blog->category }}</h2>
+                   <p class='updated_at'>{{ $blog->updated_at }}</p>
          </div>
          <div class='back'>[<a href='/'>back</a>]</div>
     </body>
