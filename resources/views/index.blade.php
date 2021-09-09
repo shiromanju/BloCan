@@ -15,7 +15,8 @@
              //asの後ろは単数形が好ましい。asは鞄の中に入った複数の物の中から一つだけ取り出すときに用いる。
             @foreach ($blogs as $blog)
                <div class='post'>
-                  <a href='/posts/{{$blog->id}}'><h2 class='title'>{{$blog->title}}</h2></a>
+                   //web.phpのURLと対応
+                  <a href='/blogs/{{$blog->id}}'><h2 class='title'>{{$blog->title}}</h2></a>
                   <p class='body'>{{ $blog->content}}</p>
                </div>
             @endforeach

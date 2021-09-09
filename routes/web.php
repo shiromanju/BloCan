@@ -11,11 +11,14 @@ Route::get('/','PostController@index');|----------------------------------------
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Route::httpメソッド(URL,使われるコントローラー@そのメソッド)
 Route::get('/', 'BlogController@index');
-Route::get('/blogs/create', 'BlogController@create');
-Route::get('/blogs/{post}/edit', 'BlogController@edit');
-Route::put('/posts/{post}', 'BlogController@update');
-Route::delete('/posts/{post}', 'BlogController@destroy');
-Route::get('/posts/{post}', 'PostController@show');
-Route::post('/posts', 'PostController@store');
+//極論blogsはなんでもいいpostsでも行ける。レストフルなURL設定を心掛ける。
+//id指定の{}の中はテーブルとモデルに対応させる。小文字単数。laravelの機能diを用いる。
+Route::get('/blogs/{blog}', 'BlogController@show');
+
+// Route::post('/blogs', 'BlogController@store');
+// Route::get('/blogs/create', 'BlogController@create');
+// Route::get('/blogs/{blog}/edit', 'BlogController@edit');
+// Route::put('/blogs/{blog}', 'BlogController@update');
+// Route::delete('/blogs/{blog}', 'BlogController@destroy');

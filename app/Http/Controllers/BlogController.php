@@ -13,4 +13,9 @@ class BlogController extends Controller
     // view(index.blade.php)に遷移する。with(鞄みたいなもの)を用いてテーブルの情報を
         return view('index')->with(['blogs' =>$blog->getByLimit()]);
     }
+    public function show(Blog $blog)
+    {
+    //上は一覧で複数データが入っているからblogs。これは詳細だからblogでOK。
+        return view('show')->with(['blog' =>$blog]);
+    }
 }
