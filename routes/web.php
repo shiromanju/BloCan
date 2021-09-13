@@ -21,4 +21,4 @@ Route::post('/blogs', 'BlogController@store');
 Route::get('/blogs/{blog}/edit', 'BlogController@edit');
 Route::put('/blogs/{blog}', 'BlogController@update');
 Route::get('/blogs/{blog}', 'BlogController@show');
-// Route::delete('/blogs/{blog}', 'BlogController@destroy');
+Route::delete('/blogs/{blog}', 'BlogController@delete');

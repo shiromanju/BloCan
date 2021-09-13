@@ -40,4 +40,9 @@ class BlogController extends Controller
         $blog->fill($input)->save();
         return redirect('/blogs/' . $blog->id);
     }
+    public function delete(Blog $blog)
+    {
+        $blog->delete();
+        return redirect('/');
+    }
 }

@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Blog Name</h1>
-        <p class='create'>[<a href='/blogs/create'>create</a>]</p>
+        <p class='create'>[<a href='/blogs/create'>新規作成</a>]</p>
         //ここの'posts'は記事一覧の意。深い意味なし。
         <div class='posts'>
              //$blogsはBlogControllerのwithで定義したもの。使えるようにした鞄

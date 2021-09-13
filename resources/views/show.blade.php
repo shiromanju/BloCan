@@ -9,13 +9,25 @@
     <body>
         <h1>Blog Name</h1>
         <p class='edit'>[<a href="/blogs/{{ $blog->id }}/edit">編集</a>]</p>
-        <p class='create'>[<a href='/blogs/create'>create</a>]</p>
+        <form action="/blogs/{{ $blog->id}}" id="form_delete" method="post">
+            {{ csrf_field()}}
+            {{ method_field('delete') }}
+            <button type="submit"  onclick="return deletePost(this)";>削除</button>
+        </form>
         <div class='post'>
                   <h2 class='title'>{{ $blog->title }}</h2>
                   <p class='content'>{!! nl2br(e($blog->content)) !!}</p>
                    <h2 class='category'>{{ $blog->category }}</h2>
                    <p class='updated_at'>{{ $blog->updated_at }}</p>
          </div>
-         <div class='back'>[<a href='/'>back</a>]</div>
+         <div class='back'>[<a href='/'>戻る</a>]</div>
+         <script>
+         function deletePost(e){
+             'use strict';
+             if(confirm('削除されると復元できません。\n本当に削除しますか？')){
+                 document.getElementById('form_delete').submit();
+             }
+         }
+         </script>
     </body>
 </html>
