@@ -8,6 +8,7 @@
     </head>
     <body>
         <h1>Blog Name</h1>
+        <p class='edit'>[<a href="/blogs/{{ $blog->id }}/edit">編集</a>]</p>
         <p class='create'>[<a href='/blogs/create'>create</a>]</p>
         <div class='post'>
                   <h2 class='title'>{{ $blog->title }}</h2>

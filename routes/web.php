@@ -18,7 +18,7 @@ Route::get('/blogs/create', 'BlogController@create');
 Route::post('/blogs', 'BlogController@store');
 //極論blogsはなんでもいいpostsでも行ける。レストフルなURL設定を心掛ける。
 //id指定の{}の中はテーブルとモデルに対応させる。小文字単数。laravelの機能diを用いる。
+Route::get('/blogs/{blog}/edit', 'BlogController@edit');
+Route::put('/blogs/{blog}', 'BlogController@update');
 Route::get('/blogs/{blog}', 'BlogController@show');
-// Route::get('/blogs/{blog}/edit', 'BlogController@edit');
-// Route::put('/blogs/{blog}', 'BlogController@update');
 // Route::delete('/blogs/{blog}', 'BlogController@destroy');
