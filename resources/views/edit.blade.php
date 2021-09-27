@@ -54,6 +54,6 @@
             </div>
             <input type="submit" value="更新"/>
         </form>
-        <div class='back'>[<a href='/posts/{{ $blog->id }}'>back</a>]</div>
+        <div class='back'>[<a href='/blogs/{{ $blog->id }}'>back</a>]</div>
     </body>
 </html>
