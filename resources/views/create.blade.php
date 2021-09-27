@@ -7,8 +7,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
+        <header>
+            <a href="/">TOPページへ</a>
+             <a href="/home">マイページ</a>
+        </header>
         <h1>Blog Name</h1>
-        <form action="/blogs"method="POST">
+        <form action="/blogs" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="title">
                 <h2>ブログタイトル</h2>
@@ -43,8 +47,12 @@
                     <option value="旅行">旅行</option>
                 </select>
             </div>
+            
             <div class="content">
                 <h2>ブログ本文</h2>
+                <div class="image">
+                    <input type="file" name="image">
+                </div>
                 <textarea name="blog[content]" cols="80" rows=60 placeholder="どんなことを知ってもらいたい？"/></textarea>
             </div>
             <input type="submit" value="送信"/>

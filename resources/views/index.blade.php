@@ -7,7 +7,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Blog Name</h1>
+        <header>
+            <a href="/">TOPページへ</a>
+             <a href="/home">マイページ</a>
+        </header>
+        <h1>BloCan</h1>
         <p class='create'>[<a href='/blogs/create'>新規作成</a>]</p>
         //ここの'posts'は記事一覧の意。深い意味なし。
         <div class='posts'>

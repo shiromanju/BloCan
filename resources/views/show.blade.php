@@ -7,7 +7,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Blog Name</h1>
+        <header>
+            <a href="/">TOPページへ</a>
+             <a href="/home">マイページ</a>
+        </header>
+        <h1>BloCan</h1>
         <p class='edit'>[<a href="/blogs/{{ $blog->id }}/edit">編集</a>]</p>
         <form action="/blogs/{{ $blog->id}}" id="form_delete" method="post">
             {{ csrf_field()}}
@@ -15,10 +19,15 @@
             <button type="submit"  onclick="return deletePost(this)";>削除</button>
         </form>
         <div class='post'>
-                  <h2 class='title'>{{ $blog->title }}</h2>
-                  <p class='content'>{!! nl2br(e($blog->content)) !!}</p>
-                   <h2 class='category'>{{ $blog->category }}</h2>
-                   <p class='updated_at'>{{ $blog->updated_at }}</p>
+                <h2 class='title'>{{ $blog->title }}</h2>
+                  @if ($blog->image_path)
+                <!-- 画像を表示 -->
+                <img src="{{ $blog->image_path }}">
+                  @endif
+                <p class='content'>{!! nl2br(e($blog->content)) !!}</p>
+                <p class='user_name'>{{ $blog->user->name }}</p>
+                <p class='updated_at'>{{ $blog->updated_at }}</p>
+                <p class='category'>{{ $blog->category }}</p>
          </div>
          <div class='back'>[<a href='/'>戻る</a>]</div>
          <script>
