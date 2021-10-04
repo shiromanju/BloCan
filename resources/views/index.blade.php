@@ -36,6 +36,27 @@
                <div class='post'>
                   <a href='/blogs/{{$blog->id}}'><h2 class='title'>{{$blog->title}}</h2></a>
                   <p class='body'>{{ $blog->content}}</p>
+                  <p class="card-text">投稿者：{{ $blog->user->name }}</p>
+                    <div class="row justify-content-center">
+                        @if($blog->users()->where('user_id', Auth::id())->exists())
+                        <div class="col-md-3">
+                            <form action="{{ route('unfavorites', $blog) }}" method="POST">
+                                @csrf
+                                <input type="submit" value="&#xf164;いいね取り消す" class="fas btn btn-danger">
+                            </form>
+                        </div>
+                        @else
+                        <div class="col-md-3">
+                            <form action="{{ route('favorites', $blog) }}" method="POST">
+                                @csrf
+                                <input type="submit" value="&#xf164;いいね" class="fas btn btn-success">
+                            </form>
+                        </div>
+                        @endif
+                        <div class="row justify-content-center">
+                            <p>いいね数：{{ $blog->users()->count() }}</p>
+                        </div>
+                    </div>
                </div>
             @endforeach
         </div>

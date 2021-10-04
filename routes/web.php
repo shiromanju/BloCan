@@ -32,3 +32,6 @@ Route::delete('/blogs/{blog}', 'BlogController@delete');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('blogs/{blog}/favorites', 'FavoriteController@store')->name('favorites');
+Route::post('blogs/{blog}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');
