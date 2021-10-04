@@ -13,6 +13,7 @@ Route::get('/','PostController@index');|----------------------------------------
 */
 //Route::httpメソッド(URL,使われるコントローラー@そのメソッド)
 Route::get('/', 'BlogController@index')->middleware('auth');
+Route::POST('/blogs/search', 'BlogController@search')->name('blogs.search');
 //順番が大事。1つに定まるものは先に{}系の複数当てはまるものは後にする。
 Route::get('/blogs/create', 'BlogController@create');
 Route::post('/blogs', 'BlogController@store');
