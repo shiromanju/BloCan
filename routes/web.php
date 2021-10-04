@@ -13,6 +13,7 @@ Route::get('/','PostController@index');|----------------------------------------
 */
 //Route::httpメソッド(URL,使われるコントローラー@そのメソッド)
 Route::get('/', 'BlogController@index')->middleware('auth');
+Route::POST('/blogs/search', 'BlogController@search')->name('blogs.search');
 //順番が大事。1つに定まるものは先に{}系の複数当てはまるものは後にする。
 Route::get('/blogs/create', 'BlogController@create');
 Route::post('/blogs', 'BlogController@store');
@@ -31,3 +32,6 @@ Route::delete('/blogs/{blog}', 'BlogController@delete');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('blogs/{blog}/favorites', 'FavoriteController@store')->name('favorites');
+Route::post('blogs/{blog}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');
